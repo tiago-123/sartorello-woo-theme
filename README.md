@@ -6,7 +6,7 @@
 [![Tailwind CSS Version](https://img.shields.io/badge/Tailwind_CSS-v4.3.0-38B2AC.svg?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 
-A highly bespoke, premium e-commerce WordPress theme custom-tailored for the renowned Brazilian furniture manufacturer **Sartorello® Móveis**. Engineered from the ground up to combine speed, high-end aesthetics, and zero plugin bloat, this theme utilizes a cutting-edge front-end stack featuring **Alpine.js v3**, **Tailwind CSS v4**, and a lightweight **Webpack** asset pipeline.
+A minimalist, premium e-commerce WordPress theme custom-tailored for the Brazilian furniture manufacturer **Sartorello® Móveis**. Engineered from the ground up to combine speed, high-end aesthetics, and zero plugin bloat, this theme utilizes a cutting-edge front-end stack featuring **Alpine.js v3**, **Tailwind CSS v4**, and a lightweight **Webpack** asset pipeline.
 
 By disabling default WooCommerce styles, this theme gives full visual control directly to custom-designed, utility-driven layouts optimized for luxury interiors.
 
@@ -27,7 +27,7 @@ By disabling default WooCommerce styles, this theme gives full visual control di
   - Intelligent Individual vs Corporate (PF/PJ) fields visibility toggles for frictionless legal verification.
 - **🚀 Engineered for Performance**: 
   - Minimalist file sizes and zero standard WooCommerce CSS payloads.
-  - Granular, context-aware enqueue scripts (address autocomplete, gallery, and mini-cart scripts only load on target pages to keep the store's PageSpeed rating at 100).
+  - Granular, context-aware enqueue scripts (address autocomplete, gallery, and mini-cart scripts only load on target pages to improve the store's PageSpeed rating).
 
 ---
 
