@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap");
+@import "tailwindcss";
+
+@font-face {
+   font-family: "Beautifully Delicious Script Bold";
+   src: url("BDScript-Bold.woff2") format("woff2");
+}
+
+@theme {
+   --font-sans: "DM Sans", sans-serif;
+   --font-serif: "Cormorant Garamond", serif;
+   --font-script: "Beautifully Delicious Script Bold", cursive;
+
+   --color-gold-100: hsl(40, 35%, 95%);
+   --color-gold-200: hsl(40, 35%, 90%);
+   --color-gold-300: hsl(40, 35%, 85%);
+   --color-gold-400: hsl(40, 35%, 80%);
+   --color-gold-500: hsl(40, 35%, 70%);
+   --color-gold-600: hsl(40, 35%, 60%);
+   --color-gold-700: hsl(40, 35%, 50%);
+   --color-gold-800: hsl(40, 35%, 40%);
+   --color-gold-900: hsl(40, 35%, 32.5%);
+
+   /* Custom Breakpoints */
+   --breakpoint-1360px: 85rem;
+   --container-1360px: 85rem;
+   --breakpoint-1440px: 90rem;
+   --container-1440px: 90rem;
+
+   /* Animations */
+   --animate-fade-in: fade-in ease-in-out;
+   --animate-fade-in-down: fade-in-down ease-in-out;
+   --animate-fade-in-up: fade-in-up ease-in-out;
+
+   @keyframes fade-in {
+      from {
+         opacity: 0;
+      }
+      to {
+         opacity: 1;
+      }
+   }
+   @keyframes fade-in-down {
+      from {
+         opacity: 0;
+         transform: translateY(-100%);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+   @keyframes fade-in-up {
+      from {
+         opacity: 0;
+         transform: translateY(100%);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+}
+
+@layer base {
+   html {
+      @apply text-base text-neutral-800;
+   }
+
+   button:not(:disabled),
+   [role="button"]:not(:disabled) {
+      @apply cursor-pointer transition duration-300 ease-in-out;
+   }
+
+   input[type="number"],
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+      @apply m-0 appearance-none p-0;
+      -moz-appearance: textfield;
+   }
+
+   .hide-scrollbar {
+      /* Edge */
+      -ms-overflow-style: none;
+      /* Firefox */
+      scrollbar-width: none;
+
+      /* Chrome, Safari and Opera */
+      &::-webkit-scrollbar {
+         @apply hidden!;
+      }
+   }
+
+   /**
+    * ALPINE JS
+    * This is used to hide elements until Alpine.js is ready.
+    */
+   [x-cloak] {
+      @apply hidden!;
+   }
+
+   /**
+    * MINI CART
+    * This is the wrapper class for the mini cart widget that appears in the header.
+    */
+   .widget_shopping_cart_content {
+      @apply flex h-full flex-col;
+   }
+
+   /**
+    * PRODUCT PRICE
+    * This is used in the product loop and single product pages.
+    */
+   .price {
+      &.loop {
+         @apply text-sm md:text-base;
+
+         del {
+            @apply inline-block text-xs text-neutral-500 line-through md:text-sm;
+         }
+
+         ins {
+            @apply inline-block no-underline;
+         }
+      }
+
+      &.single {
+         @apply text-2xl font-extralight;
+
+         del {
+            @apply inline-block text-base font-light text-neutral-500 line-through;
+         }
+
+         ins {
+            @apply inline-block no-underline;
+         }
+      }
+
+      &.order-review {
+         @apply mt-1.5 text-sm;
+
+         del {
+            @apply inline-block text-xs text-neutral-500 line-through;
+         }
+
+         ins {
+            @apply inline-block no-underline;
+         }
+      }
+   }
+
+   /**
+    * HIDE PRODUCT DESCRIPTION INSIDE THE ADD-TO-CART FORM
+    */
+   .woocommerce-variation-description {
+      @apply hidden!;
+   }
+
+   /**
+    * ARCHIVE PRODUCT PAGE
+    */
+   .woocommerce-ordering {
+      @apply flex items-center justify-end;
+
+      select {
+         @apply my-3 h-12 w-full cursor-pointer rounded-md border border-neutral-300 p-2 sm:w-fit;
+      }
+   }
+
+   /**
+    * MY ACCOUNT PAGE
+    */
+   section:has(> #pagarme-payment-detail-title) {
+      @apply my-6;
+
+      h2 {
+         @apply mb-4 text-base font-semibold;
+      }
+
+      table {
+         @apply w-full border-separate border-spacing-0 overflow-hidden rounded-md border border-neutral-300 text-sm;
+
+         th,
+         td {
+            @apply px-4 py-3 text-left;
+         }
+
+         th {
+            @apply font-medium;
+         }
+
+         tbody td,
+         tbody th {
+            @apply border-t border-neutral-300;
+         }
+
+         button {
+            @apply my-2 py-2 px-4 rounded-sm text-sm font-semibold text-white bg-neutral-900 hover:bg-neutral-700;
+         }
+      }
+   }
+
+   /**
+    * CHECKOUT PAGE
+    */
+   #shipping_country_field,
+   #billing_country_field {
+      @apply hidden!;
+   }
+
+   .woocommerce-terms-and-conditions-wrapper a {
+      @apply underline hover:text-gold-500;
+   }
+
+   /**
+    * BOLETO & PIX - Pagar.me
+    */
+   #payment
+      > ul
+      > li.wc_payment_method.payment_method_woo-pagarme-payments-billet
+      > div
+      > fieldset
+      > p.form-row.form-row-wide,
+   #payment
+      > ul
+      > li.wc_payment_method.payment_method_woo-pagarme-payments-pix
+      > div
+      > fieldset
+      > p.form-row.form-row-wide {
+      @apply hidden!;
+   }
+
+   /**
+    * Cartão de Crédito - Pagar.me
+    */
+   #pagarme-fieldset-credit_card-1 {
+      @apply mt-3!;
+   }
+
+   .wc-credit-card-form p {
+      @apply mb-3!;
+   }
+
+   .wc-credit-card-form label {
+      @apply mb-1! text-xs! font-semibold! tracking-wider! uppercase!;
+   }
+
+   .wc-credit-card-form input,
+   .wc-credit-card-form select {
+      @apply text-base! font-medium! border! border-neutral-300! rounded-sm! bg-white!;
+   }
+
+   .wc-credit-card-form h4 {
+      @apply inline-block! text-base! font-semibold! mb-3! p-2! rounded-sm! bg-neutral-200!;
+   }
+
+   /* div.payment_method_pagbank_credit_card {
+      @apply max-w-sm;
+   }
+
+   #wc-pagbank_credit_card-cc-form {
+      p {
+         @apply py-1 px-3 border border-neutral-300 bg-white;
+
+         label {
+            @apply block text-xs! text-neutral-800;
+         }
+
+         input {
+            @apply block w-full text-base! text-neutral-800 focus:outline-none;
+         }
+
+         &:has(> #pagbank_credit_card-card-holder) {
+            @apply rounded-t-md;
+         }
+
+         &:has(> #pagbank_credit_card-card-expiry) {
+            @apply sm:w-1/2 sm:float-left sm:rounded-bl-md;
+         }
+
+         &:has(> #pagbank_credit_card-card-cvc) {
+            @apply rounded-b-md sm:w-1/2 sm:float-right sm:rounded-bl-none;
+         }
+      }
+   }
+
+   .pagbank-credit-card-installments {
+      @apply relative flex items-center justify-start h-13 px-3 py-1 border border-neutral-300 rounded-md bg-white;
+
+      label {
+         @apply pointer-events-none absolute top-1 text-xs! text-neutral-800;
+      }
+
+      span {
+         @apply absolute inset-0;
+      }
+
+      select {
+         @apply cursor-pointer absolute inset-0 mr-3 px-2 pt-5.5 pb-1 text-base! text-neutral-800 focus:outline-none;
+      }
+   } */
+
+   /* Remove the option to save credit card information */
+   .woocommerce-SavedPaymentMethods-saveNew,
+   p:has(> #wc-pagbank_credit_card-new-payment-method) {
+      @apply hidden!;
+   }
+
+   /**
+    * THANK YOU PAGE
+    */
+   .pagarme-response {
+      @apply flex flex-col items-center justify-center rounded-md sm:items-start;
+
+      p {
+         @apply mb-2 text-center sm:text-left;
+      }
+
+      button {
+         @apply flex! mx-0! my-4! py-4 px-8 rounded-sm text-sm font-semibold text-white bg-neutral-900 hover:bg-neutral-700;
+      }
+   }
+
+   /* .pagbank-boleto,
+   .pagbank-pix {
+      @apply text-sm rounded-md;
+
+      div {
+         @apply flex items-center justify-start!;
+      }
+
+      h3 {
+         @apply font-bold;
+      }
+
+      a,
+      button {
+         @apply my-4 p-4 rounded-sm text-sm font-semibold text-white bg-neutral-900 hover:bg-neutral-800;
+      }
+
+      input {
+         @apply flex items-center justify-start min-w-0 h-13 px-3 py-1 border border-neutral-500 rounded-sm bg-neutral-100;
+      }
+
+      img {
+         @apply my-4!;
+      }
+   } */
+}
