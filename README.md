@@ -64,6 +64,6 @@ sartorello-woo-theme/
 ## 📄 License & Credits
 
 - **License**: Licensed under the GNU General Public License v3 or later ([GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html)).
-- **Created by**: [Tiago Sartor](https://github.com/tiago-123) for **Sartorello® Móveis**.
+- **Created by**: [Tiago Sartor](https://github.com/tiago-sartor) for **Sartorello® Móveis**.
 
 ---
